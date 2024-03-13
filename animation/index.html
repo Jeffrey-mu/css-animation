@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>animation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="p-5 max-w-[700px] m-auto">
+    <div class="h-80 w-1/2 light-beam bg-slate-200 rounded-xl overflow-hidden">
+      <img src="https://image.jiafengfmc.cn/file/aa25783834a69d7567b10.png" alt="">
+
+    </div>
+    <style>
+      .light-beam {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .light-beam::after {
+        position: absolute;
+        top: 0;
+        background: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 0, hsla(0, 0%, 100%, .5) 25%, #fff 50%, hsla(0, 0%, 100%, .5) 75%, hsla(0, 0%, 100%, 0));
+        content: "";
+        -webkit-animation: bright 5.5s infinite;
+        animation: bright 5.5s infinite;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+      }
+
+      @keyframes bright {
+        0% {
+          transform: translateX(-180%) skewX(45deg);
+        }
+
+        100% {
+          transform: translateX(420%) skewX(45deg);
+        }
+      }
+    </style>
+
+  </div>
+</body>
+
+</html>
