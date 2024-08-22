@@ -6,43 +6,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>animation</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .light-beam {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .light-beam::after {
+      position: absolute;
+      top: 0;
+      background: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 0, hsla(0, 0%, 100%, .5) 25%, #fff 50%, hsla(0, 0%, 100%, .5) 75%, hsla(0, 0%, 100%, 0));
+      content: "";
+      -webkit-animation: bright 5.5s infinite;
+      animation: bright 5.5s infinite;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes bright {
+      0% {
+        transform: translateX(-180%) skewX(45deg);
+      }
+
+      100% {
+        transform: translateX(420%) skewX(45deg);
+      }
+    }
+
+
+
+    .trembling {
+      animation: trembling 5s linear infinite backwards;
+      -webkit-animation: trembling 5s linear infinite backwards;
+      -moz-animation: trembling 5s linear infinite backwards
+    }
+
+    @-webkit-keyframes trembling {
+      26% {
+        transform: rotate(0deg) scale(1);
+        -webkit-transform: rotate(0deg) scale(1)
+      }
+
+      28% {
+        transform: rotate(-2deg) scale(1.04);
+        -webkit-transform: rotate(-2deg) scale(1.04)
+      }
+
+      32% {
+        transform: rotate(1deg) scale(1.01);
+        -webkit-transform: rotate(1deg) scale(1.01)
+      }
+
+      34% {
+        transform: rotate(-2deg) scale(1.02);
+        -webkit-transform: rotate(-2deg) scale(1.02)
+      }
+
+      36% {
+        transform: rotate(3deg) scale(1);
+        -webkit-transform: rotate(3deg) scale(1)
+      }
+
+      39% {
+        transform: rotate(-1deg) scale(1);
+        -webkit-transform: rotate(-1deg) scale(1)
+      }
+
+      44% {
+        transform: rotate(0deg) scale(1);
+        -webkit-transform: rotate(0deg) scale(1)
+      }
+    }
+
+    @keyframes trembling {
+      26% {
+        transform: rotate(0deg) scale(1);
+        -webkit-transform: rotate(0deg) scale(1)
+      }
+
+      28% {
+        transform: rotate(-2deg) scale(1.04);
+        -webkit-transform: rotate(-2deg) scale(1.04)
+      }
+
+      32% {
+        transform: rotate(1deg) scale(1.01);
+        -webkit-transform: rotate(1deg) scale(1.01)
+      }
+
+      34% {
+        transform: rotate(-2deg) scale(1.02);
+        -webkit-transform: rotate(-2deg) scale(1.02)
+      }
+
+      36% {
+        transform: rotate(3deg) scale(1);
+        -webkit-transform: rotate(3deg) scale(1)
+      }
+
+      39% {
+        transform: rotate(-1deg) scale(1);
+        -webkit-transform: rotate(-1deg) scale(1)
+      }
+
+      44% {
+        transform: rotate(0deg) scale(1);
+        -webkit-transform: rotate(0deg) scale(1)
+      }
+    }
+
+    .grid img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="p-5 max-w-[700px] m-auto">
-    <div class="h-80 w-1/2 light-beam bg-slate-200 rounded-xl overflow-hidden">
+  <div class="p-5 grid md:grid-cols-6 sm:grid-cols-3 gap-5 m-auto">
+    <div class="h-80 light-beam bg-slate-200 rounded-xl overflow-hidden">
       <img src="https://image.jiafengfmc.cn/file/aa25783834a69d7567b10.png" alt="">
-
     </div>
-    <style>
-      .light-beam {
-        position: relative;
-        overflow: hidden;
-      }
 
-      .light-beam::after {
-        position: absolute;
-        top: 0;
-        background: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 0, hsla(0, 0%, 100%, .5) 25%, #fff 50%, hsla(0, 0%, 100%, .5) 75%, hsla(0, 0%, 100%, 0));
-        content: "";
-        -webkit-animation: bright 5.5s infinite;
-        animation: bright 5.5s infinite;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-      }
-
-      @keyframes bright {
-        0% {
-          transform: translateX(-180%) skewX(45deg);
-        }
-
-        100% {
-          transform: translateX(420%) skewX(45deg);
-        }
-      }
-    </style>
-
+    <div class="h-80 trembling bg-slate-200 rounded-xl overflow-hidden">
+      <img src="https://image.jiafengfmc.cn/file/aa25783834a69d7567b10.png" alt="">
+    </div>
   </div>
 </body>
 
